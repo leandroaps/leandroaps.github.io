@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Resume extends Component {
   render() {
@@ -8,7 +8,9 @@ class Resume extends Component {
         <div key={education.school}>
           <h3>{education.school}</h3>
           <p className="info">
-            {education.degree} <span>&bull;</span>
+            {education.degree}
+            {' '}
+            <span>&bull;</span>
             <em className="date">{education.graduated}</em>
           </p>
           <p>{education.description}</p>
@@ -19,12 +21,14 @@ class Resume extends Component {
           <h3>{work.company}</h3>
           <p className="info">
             {work.title}
-            <span>&bull;</span> <em className="date">{work.years}</em>
+            <span>&bull;</span>
+            {' '}
+            <em className="date">{work.years}</em>
           </p>
           <p>{work.description}</p>
         </div>
       ));
-      var skills = this.props.data.skills.map(skills => {
+      var skills = this.props.data.skills.map((skills) => {
         const className = `bar-expand ${skills.name.toLowerCase()}`;
         return (
           <li key={skills.name}>

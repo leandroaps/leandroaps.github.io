@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class About extends Component {
   render() {
@@ -38,8 +38,12 @@ class About extends Component {
                   <span>
                     {street}
                     <br />
-                    {city} {state}
-                    , {zip}
+                    {city}
+                    {' '}
+                    {state}
+                    ,
+                    {' '}
+                    {zip}
                   </span>
                   <br />
                   <span>{phone}</span>
