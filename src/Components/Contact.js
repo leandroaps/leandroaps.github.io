@@ -125,11 +125,7 @@ class Contact extends Component {
                     This is Photoshops version of Lorem Ipsum. Proin gravida
                     nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
                     quis bibendum auctor, nisi elit consequat ipsum
-                    <a href="#">http://t.co/CGIrdxIlI3</a>
                   </span>
-                  <b>
-                    <a href="#">2 Days Ago</a>
-                  </b>
                 </li>
                 <li>
                   <span>
@@ -137,11 +133,7 @@ class Contact extends Component {
                     voluptatem accusantium doloremque laudantium, totam rem
                     aperiam, eaque ipsa quae ab illo inventore veritatis et
                     quasi
-                    <a href="#">http://t.co/CGIrdxIlI3</a>
                   </span>
-                  <b>
-                    <a href="#">3 Days Ago</a>
-                  </b>
                 </li>
               </ul>
             </div>
