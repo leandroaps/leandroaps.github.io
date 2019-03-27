@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
+/* eslint-disable vars-on-top */
 import React, { Component } from "react";
 
 class Header extends Component {
@@ -62,9 +65,7 @@ class Header extends Component {
 
         <div className="row banner">
           <div className="banner-text">
-            <h1 className="responsive-headline">
-              I'm {name}.
-            </h1>
+            <h1 className="responsive-headline">I'm {name}.</h1>
             <h3>
               I'm a {city} based
               <span>{occupation}</span>.{description}.

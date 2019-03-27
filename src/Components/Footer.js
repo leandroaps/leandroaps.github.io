@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable vars-on-top */
 import React, { Component } from "react";
 
 class Footer extends Component {

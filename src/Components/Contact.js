@@ -1,3 +1,5 @@
+/* eslint-disable vars-on-top */
+/* eslint-disable react/prop-types */
 import React, { Component } from "react";
 
 class Contact extends Component {
@@ -9,7 +11,6 @@ class Contact extends Component {
       var state = this.props.data.address.state;
       var zip = this.props.data.address.zip;
       var phone = this.props.data.phone;
-      const email = this.props.data.email;
       var message = this.props.data.contactmessage;
     }
 
@@ -59,7 +60,6 @@ class Contact extends Component {
                     name="contactEmail"
                     onChange={this.handleChange}
                   />
-                  />
                 </div>
 
                 <div>
@@ -71,7 +71,6 @@ class Contact extends Component {
                     id="contactSubject"
                     name="contactSubject"
                     onChange={this.handleChange}
-                  />
                   />
                 </div>
 
@@ -112,9 +111,7 @@ class Contact extends Component {
                 {name}
                 <br />
                 {street} <br />
-                {city}
-                ,
-                {state} {zip}
+                {city},{state} {zip}
                 <br />
                 <span>{phone}</span>
               </p>
@@ -125,7 +122,7 @@ class Contact extends Component {
               <ul id="twitter">
                 <li>
                   <span>
-                    This is Photoshop's version of Lorem Ipsum. Proin gravida
+                    This is Photoshops version of Lorem Ipsum. Proin gravida
                     nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
                     quis bibendum auctor, nisi elit consequat ipsum
                     <a href="#">http://t.co/CGIrdxIlI3</a>

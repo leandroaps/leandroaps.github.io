@@ -1,9 +1,11 @@
+/* eslint-disable vars-on-top */
+/* eslint-disable react/prop-types */
 import React, { Component } from "react";
 
 class Portfolio extends Component {
   render() {
     if (this.props.data) {
-      var projects = this.props.data.projects.map((projects) => {
+      var projects = this.props.data.projects.map(projects => {
         const projectImage = `images/portfolio/${projects.image}`;
         return (
           <div key={projects.title} className="columns portfolio-item">
