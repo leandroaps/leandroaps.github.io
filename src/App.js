@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import ReactGA from "react-ga";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -7,43 +7,34 @@ import Resume from "./Components/Resume";
 import Contact from "./Components/Contact";
 import Testimonials from "./Components/Testimonials";
 import Portfolio from "./Components/Portfolio";
+import axios from "axios";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      foo: "bar",
-      resumeData: {}
-    };
+function App() {
+  const [data, setData] = useState({ resumeData: [] });
 
+  useEffect(() => {
     ReactGA.initialize("UA-122881407-1");
     ReactGA.pageview(window.location.pathname);
-  }
+    const fetchData = async() => {
+      const result = await axios("/resumeData.json");
 
-  getResumeData() {
-    fetch("/resumeData.json")
-      .then(response => response.json())
-      .then(result => this.setState({ resumeData: result }))
-      .catch(error => console.log("error:", error));
-  }
+      setData(result.data);
+    };
 
-  componentDidMount() {
-    this.getResumeData();
-  }
+    fetchData();
+  }, []);
 
-  render() {
-    return (
-      <div className="App">
-        <Header data={this.state.resumeData.main} />
-        <About data={this.state.resumeData.main} />
-        <Resume data={this.state.resumeData.resume} />
-        <Portfolio data={this.state.resumeData.portfolio} />
-        <Testimonials data={this.state.resumeData.testimonials} />
-        <Contact data={this.state.resumeData.main} />
-        <Footer data={this.state.resumeData.main} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Header data={data.main} />
+      <About data={data.main} />
+      <Resume data={data.resume} />
+      <Portfolio data={data.portfolio} />
+      <Testimonials data={data.testimonials} />
+      <Contact data={data.main} />
+      <Footer data={data.main} />
+    </div>
+  );
 }
 
 export default App;
