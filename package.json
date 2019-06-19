@@ -2,10 +2,8 @@
   "name": "resume",
   "version": "2.0.0",
   "private": true,
-  "homepage": "https://leandroaps.github.io/leandroaps.github.io",
   "dependencies": {
     "axios": "^0.19.0",
-    "gh-pages": "^2.0.1",
     "jquery": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -18,8 +16,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "deploy": "gh-pages -d build"
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
