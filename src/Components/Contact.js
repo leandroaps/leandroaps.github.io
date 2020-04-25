@@ -1,18 +1,6 @@
-/* eslint-disable vars-on-top */
-/* eslint-disable react/prop-types */
-import React from "react";
+import React from 'react';
 
-const Contact = props => {
-  if (props.data) {
-    var name = props.data.name;
-    var street = props.data.address.street;
-    var city = props.data.address.city;
-    var state = props.data.address.state;
-    var zip = props.data.address.zip;
-    var phone = props.data.phone;
-    var message = props.data.contactmessage;
-  }
-
+const Contact = ({ data }) => {
   return (
     <section id="contact">
       <div className="row section-head">
@@ -23,7 +11,7 @@ const Contact = props => {
         </div>
 
         <div className="ten columns">
-          <p className="lead">{message}</p>
+          <p className="lead">{data.message}</p>
         </div>
       </div>
 
@@ -35,56 +23,60 @@ const Contact = props => {
                 <label htmlFor="contactName">
                   Name
                   <span className="required">*</span>
+                  <input
+                    type="text"
+                    defaultValue=""
+                    size="35"
+                    id="contactName"
+                    name="contactName"
+                  />
                 </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactName"
-                  name="contactName"
-                />
               </div>
 
               <div>
                 <label htmlFor="contactEmail">
                   Email
                   <span className="required">*</span>
+                  <input
+                    type="text"
+                    defaultValue=""
+                    size="35"
+                    id="contactEmail"
+                    name="contactEmail"
+                  />
                 </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactEmail"
-                  name="contactEmail"
-                />
               </div>
 
               <div>
-                <label htmlFor="contactSubject">Subject</label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactSubject"
-                  name="contactSubject"
-                />
+                <label htmlFor="contactSubject">
+                  Subject
+                  <input
+                    type="text"
+                    defaultValue=""
+                    size="35"
+                    id="contactSubject"
+                    name="contactSubject"
+                  />
+                </label>
               </div>
 
               <div>
                 <label htmlFor="contactMessage">
                   Message
                   <span className="required">*</span>
+                  <textarea
+                    cols="50"
+                    rows="15"
+                    id="contactMessage"
+                    name="contactMessage"
+                  />
                 </label>
-                <textarea
-                  cols="50"
-                  rows="15"
-                  id="contactMessage"
-                  name="contactMessage"
-                />
               </div>
 
               <div>
-                <button className="submit">Submit</button>
+                <button type="submit" className="submit">
+                  Submit
+                </button>
                 <span id="image-loader">
                   <img alt="" src="images/loader.gif" />
                 </span>
@@ -104,12 +96,12 @@ const Contact = props => {
           <div className="widget widget_contact">
             <h4>Address and Phone</h4>
             <p className="address">
-              {name}
+              {data.name}
               <br />
-              {street} <br />
-              {city},{state} {zip}
+              {data.street} <br />
+              {data.city},{data.state} {data.zip}
               <br />
-              <span>{phone}</span>
+              <span>{data.phone}</span>
             </p>
           </div>
 

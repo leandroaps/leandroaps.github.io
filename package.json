@@ -1,48 +1,69 @@
 {
-  "name": "resume",
-  "version": "2.0.0",
+  "name": "beertech",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/react": "^5.3.18",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.3",
+    "@testing-library/user-event": "^10.1.0",
     "axios": "^0.19.2",
-    "jquery": "^3.5.0",
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.14.0",
+    "puppeteer": "^3.0.1",
     "react": "^16.13.1",
+    "react-bootstrap": "1.0.1",
     "react-dom": "^16.13.1",
-    "react-ga": "^2.7.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
+    "format": "yarn prettier -- --write",
+    "lint:fix": "yarn lint --fix",
+    "lint": "eslint \"src/**/*.{js,jsx,json}\"",
+    "prettier": "prettier \"src/**/*.{js,jsx,json,css}\"",
+    "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "docker": "docker build --rm -f Dockerfile -t beertech:latest .",
+    "production": "docker run --rm -it  -p 3000:3000/tcp -p 80:80/tcp beertech:latest",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^4.7.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-app": "^6.2.2",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.5",
     "import-sort-cli": "^6.0.0",
     "import-sort-style-eslint": "^6.0.0",
     "lint-staged": "^10.1.7",
-    "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "prettier": "2.0.5"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "yarn format",
+      "yarn lint:fix"
     ]
   }
 }

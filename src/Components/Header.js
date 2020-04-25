@@ -1,23 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/prop-types */
-/* eslint-disable vars-on-top */
-import React from "react";
+import React from 'react';
 
-const Header = props => {
-  if (props.data) {
-    var name = props.data.name;
-    var occupation = props.data.occupation;
-    var description = props.data.description;
-    var city = props.data.address.city;
-    var networks = props.data.social.map(network => (
-      <li key={network.name}>
-        <a href={network.url}>
-          <i className={network.className} />
-        </a>
-      </li>
-    ));
-  }
-
+const Header = ({ data }) => {
   return (
     <header id="home">
       <nav id="nav-wrap">
@@ -64,13 +47,21 @@ const Header = props => {
 
       <div className="row banner">
         <div className="banner-text">
-          <h1 className="responsive-headline">I'm {name}.</h1>
+          <h1 className="responsive-headline">I&apos;m {data.name}.</h1>
           <h3>
-            I'm a {city} based
-            <span>{occupation}</span>.{description}.
+            I&apos;m a {data.city} based
+            <span>{data.occupation}</span>.{data.description}.
           </h3>
           <hr />
-          <ul className="social">{networks}</ul>
+          <ul className="social">
+            {data.social.map((network) => (
+              <li key={network.name}>
+                <a href={network.url}>
+                  <i className={network.className} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

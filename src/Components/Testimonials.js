@@ -1,19 +1,6 @@
-/* eslint-disable vars-on-top */
-/* eslint-disable react/prop-types */
-import React from "react";
+import React from 'react';
 
-const Testimonials = props => {
-  if (props.data) {
-    var testimonials = props.data.testimonials.map(testimonials => (
-      <li key={testimonials.user}>
-        <blockquote>
-          <p>{testimonials.text}</p>
-          <cite>{testimonials.user}</cite>
-        </blockquote>
-      </li>
-    ));
-  }
-
+const Testimonials = ({ data }) => {
   return (
     <section id="testimonials">
       <div className="text-container">
@@ -25,7 +12,16 @@ const Testimonials = props => {
           </div>
 
           <div className="ten columns flex-container">
-            <ul className="slides">{testimonials}</ul>
+            <ul className="slides">
+              {data.testimonials.map((testimonials) => (
+                <li key={testimonials.user}>
+                  <blockquote>
+                    <p>{testimonials.text}</p>
+                    <cite>{testimonials.user}</cite>
+                  </blockquote>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

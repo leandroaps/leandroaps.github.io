@@ -1,23 +1,19 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable vars-on-top */
-import React from "react";
+import React from 'react';
 
-const Footer = props => {
-  if (props.data) {
-    var networks = props.data.social.map(network => (
-      <li key={network.name}>
-        <a href={network.url}>
-          <i className={network.className} />
-        </a>
-      </li>
-    ));
-  }
-
+const Footer = ({ data }) => {
   return (
     <footer>
       <div className="row">
         <div className="twelve columns">
-          <ul className="social-links">{networks}</ul>
+          <ul className="social-links">
+            {data.social.map((network) => (
+              <li key={network.name}>
+                <a href={network.url}>
+                  <i className={network.className} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
         <div id="go-top">
           <a className="smoothscroll" title="Back to Top" href="#home">

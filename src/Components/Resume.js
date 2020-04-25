@@ -1,41 +1,6 @@
-/* eslint-disable vars-on-top */
-/* eslint-disable react/prop-types */
-import React from "react";
+import React from 'react';
 
-const Resume = props => {
-  if (props.data) {
-    var skillmessage = props.data.skillmessage;
-    var education = props.data.education.map(education => (
-      <div key={education.school}>
-        <h3>{education.school}</h3>
-        <p className="info">
-          {education.degree} <span>&bull;</span>
-          <em className="date">{education.graduated}</em>
-        </p>
-        <p>{education.description}</p>
-      </div>
-    ));
-    var work = props.data.work.map(work => (
-      <div key={work.company}>
-        <h3>{work.company}</h3>
-        <p className="info">
-          {work.title}
-          <span>&bull;</span> <em className="date">{work.years}</em>
-        </p>
-        <p>{work.description}</p>
-      </div>
-    ));
-    var skills = props.data.skills.map(skills => {
-      const className = `bar-expand ${skills.name.toLowerCase()}`;
-      return (
-        <li key={skills.name}>
-          <span style={{ width: skills.level }} className={className} />
-          <em>{skills.name}</em>
-        </li>
-      );
-    });
-  }
-
+const Resume = ({ data }) => {
   return (
     <section id="resume">
       <div className="row education">
@@ -47,7 +12,18 @@ const Resume = props => {
 
         <div className="nine columns main-col">
           <div className="row item">
-            <div className="twelve columns">{education}</div>
+            <div className="twelve columns">
+              {data.education.map((education) => (
+                <div key={education.school}>
+                  <h3>{education.school}</h3>
+                  <p className="info">
+                    {education.degree} <span>&bull;</span>
+                    <em className="date">{education.graduated}</em>
+                  </p>
+                  <p>{education.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +35,18 @@ const Resume = props => {
           </h1>
         </div>
 
-        <div className="nine columns main-col">{work}</div>
+        <div className="nine columns main-col">
+          {data.work.map((work) => (
+            <div key={work.company}>
+              <h3>{work.company}</h3>
+              <p className="info">
+                {work.title}
+                <span>&bull;</span> <em className="date">{work.years}</em>
+              </p>
+              <p>{work.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="row skill">
@@ -70,10 +57,23 @@ const Resume = props => {
         </div>
 
         <div className="nine columns main-col">
-          <p>{skillmessage}</p>
+          <p>{data.skillmessage}</p>
 
           <div className="bars">
-            <ul className="skills">{skills}</ul>
+            <ul className="skills">
+              {data.skills.map((skills) => {
+                const className = `bar-expand ${skills.name.toLowerCase()}`;
+                return (
+                  <li key={skills.name}>
+                    <span
+                      style={{ width: skills.level }}
+                      className={className}
+                    />
+                    <em>{skills.name}</em>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>
